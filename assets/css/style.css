@@ -1,0 +1,31 @@
+.header{   
+    max-height: 100px;
+    
+}
+
+.header ul {	
+	margin:0px;
+	background-color:#EDEDED;
+	list-style:none;  
+    display: flex;  
+    justify-content: center;
+    padding: 10px;    
+}
+
+ul li{
+    padding: 20px;
+}
+.max-width-800 {
+    padding: 20px 40px;
+    background-color:#EDEDED;
+    max-width: 800px;
+}
+.tabela td{
+    background-color:#FFF;   
+}
+.border-1{
+    max-height: 40px;
+}
+.border-1:hover{
+    border: 0.4px solid #000;    
+}
