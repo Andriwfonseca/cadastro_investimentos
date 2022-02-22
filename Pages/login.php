@@ -1,6 +1,5 @@
 <?php require('../partials/header.php'); ?>
-<div class="container">
-    <br>
+<div class="container max-width-800">
     <h1>Login</h1>
 
     <?php

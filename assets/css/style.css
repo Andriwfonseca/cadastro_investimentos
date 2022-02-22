@@ -9,12 +9,17 @@
 	list-style:none;  
     display: flex;  
     justify-content: center;
-    padding: 10px;    
+    padding: 10px;        
 }
 
 ul li{
     padding: 20px;
 }
+
+a:link {
+    text-decoration: none;
+}
+
 .max-width-800 {
     padding: 20px 40px;
     background-color:#EDEDED;
@@ -23,9 +28,7 @@ ul li{
 .tabela td{
     background-color:#FFF;   
 }
-.border-1{
-    max-height: 40px;
-}
+
 .border-1:hover{
     border: 0.4px solid #000;    
 }

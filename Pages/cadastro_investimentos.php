@@ -17,14 +17,13 @@ if(isset($_POST['descricao'])){
     $valor_cota = filter_input(INPUT_POST, 'valor_cota');
     $qtd_cota = filter_input(INPUT_POST, 'qtd_cota');
     $percentual = filter_input(INPUT_POST, 'percentual');
-
-    $participante = 0;    
+  
     $valor_total = $valor_cota * $qtd_cota;
     $valor_pagar = $valor_total * ($percentual / 100);
     
 
     if($descricao && $valor_cota && $percentual && $qtd_cota){
-        if ($investimento->cadastrar($descricao, $valor_cota, $percentual, $valor_pagar, $participante, $qtd_cota)){
+        if ($investimento->cadastrar($descricao, $valor_cota, $percentual, $valor_pagar, $qtd_cota)){
             ?>
             <div class="alert alert-success">
                 <strong>Parabéns!</strong> Investimento cadastrado com sucesso. <a href="investimentos.php" class="alert-link">Verifique na página de consultas</a>

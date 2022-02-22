@@ -84,7 +84,7 @@ if(isset($_POST['nome'])){
             <input type="text" name="numero" id="numero" class="form-control" value="<?= $dados['numero'] ?>" />
         </div>
 
-        <input type="submit" value="Cadastrar" class="btn btn-primary mt-2" />
+        <input type="submit" value="Salvar" class="btn btn-primary mt-2" />
     </form>
 </div>
 <?php require('../partials/footer.php'); ?>
