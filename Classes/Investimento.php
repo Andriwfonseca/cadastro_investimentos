@@ -5,29 +5,32 @@ class Investimento{
     public function cadastrar($descricao, $valor_cota, $percentual, $valor_pagar, $qtd_cota){
         global $pdo;        
         
-        $id_admin = $_SESSION['cAdmin'];
+        if($_SESSION['cAdmin'] == 1){
+            $id_admin = $_SESSION['cLogin'];
+       
+        
 
-        $sql = $pdo->prepare("SELECT id FROM investimentos WHERE descricao = :descricao");
-        $sql->bindValue(":descricao", $descricao);
-        $sql->execute();
-
-        if($sql->rowCount() == 0){
-            $sql = $pdo->prepare("INSERT INTO investimentos SET  descricao = :descricao, valor_cota = :valor_cota,
-                                                            percentual = :percentual, valor_pagar = :valor_pagar,
-                                                            qtd_cota = :qtd_cota, id_admin = :id_admin");
+            $sql = $pdo->prepare("SELECT id FROM investimentos WHERE descricao = :descricao");
             $sql->bindValue(":descricao", $descricao);
-            $sql->bindValue(":valor_cota", $valor_cota);
-            $sql->bindValue(":percentual", $percentual);
-            $sql->bindValue(":valor_pagar", $valor_pagar);    
-            $sql->bindValue(":qtd_cota", $qtd_cota);
-            $sql->bindValue(":id_admin", $id_admin);
-           
             $sql->execute();
 
-            return true;
-        }else{
-            return false;
+            if($sql->rowCount() == 0){
+                $sql = $pdo->prepare("INSERT INTO investimentos SET  descricao = :descricao, valor_cota = :valor_cota,
+                                                                percentual = :percentual, valor_pagar = :valor_pagar,
+                                                                qtd_cota = :qtd_cota, id_admin = :id_admin");
+                $sql->bindValue(":descricao", $descricao);
+                $sql->bindValue(":valor_cota", $valor_cota);
+                $sql->bindValue(":percentual", $percentual);
+                $sql->bindValue(":valor_pagar", $valor_pagar);    
+                $sql->bindValue(":qtd_cota", $qtd_cota);
+                $sql->bindValue(":id_admin", $id_admin);
+            
+                $sql->execute();
+
+                return true;
+            }
         }
+        return false;
     }   
 
     public function listarInvestimentos($id_usuario, $filtro, $ja_participante, $nao_participante){

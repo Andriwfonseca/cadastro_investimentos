@@ -38,8 +38,7 @@ if($_SESSION['cAdmin'] == 1){
 }
 
 ?>
-<div class="container max-width-800">
-    
+<div class="container max-width-800"> 
     <form method="GET">
     <label for="filtro">Filtrar</label>
         <select name="ordem">
@@ -89,7 +88,7 @@ if($_SESSION['cAdmin'] == 1){
                     <?php endif; ?>
 
                     <?php if ($_SESSION['cAdmin'] == 1): ?>                    
-                        <button class="btn btn-light border-1" onclick="listarParticipantes(<?= $dados[$x]['id'] ?>)" >
+                        <button class="btn btn-light border-1" onclick="mostrarModal(<?= $dados[$x]['id'] ?>)" >
                         <p>Participantes</p>                                       
                         </button>  
                         <?php endif; ?>
@@ -99,4 +98,17 @@ if($_SESSION['cAdmin'] == 1){
         </tbody>
     </table>
 </div>
+<?php if($_SESSION['cAdmin'] == 1): ?>  
+    <div id="modal-participantes" class="hide">
+    <div class="modal-container">
+    <div class="modal-2">
+        <h3>Participantes</h3>
+        <ul id="lista-participantes">
+        </ul>
+        <button onclick="esconderModal()" class="btn btn-secondary">Voltar</button>
+    </div>
+    </div> 
+</div>
+<?php endif; ?>
+
 <?php require('../partials/footer.php'); ?>

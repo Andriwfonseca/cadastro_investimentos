@@ -21,13 +21,13 @@
         if($nome && $email && $senha && $telefone && $estado && $cidade && $bairro && $rua && $numero){
             if ($user->cadastrar($nome,$email,$senha,$telefone,$estado, $cidade, $bairro, $rua, $numero)){
                 ?>
-                <div class="alert alert-success">
+                <div class="text-center alert alert-success">
                     <strong>Parabéns!</strong> Cadastrado com sucesso. <a href="login.php" class="alert-link">Faça o login agora</a>
                 </div>
                 <?php
             }else{
                 ?>
-                <div class="alert alert-warning">
+                <div class="text-center alert alert-warning">
                 Esse usuário já existe!
                 <a href="login.php" class="alert-link">Faça o login agora</a>
                 </div>
@@ -36,7 +36,7 @@
 
         }else{
             ?>
-            <div class="alert alert-warning">
+            <div class="text-center alert alert-warning">
                 Preencha todos os campos!
             </div>
             <?php

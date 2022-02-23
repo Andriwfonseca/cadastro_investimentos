@@ -19,14 +19,14 @@
             <?php
            }else{
                ?>
-                <div class="alert alert-danger">
+                <div class="text-center alert alert-danger">
                 Usuário e/ou Senha errados!
                 </div>
             <?php
             }
         }else{
             ?>
-            <div class="alert alert-warning">
+            <div class="text-center alert alert-warning">
                 Preencha todos os campos!
             </div>
             <?php

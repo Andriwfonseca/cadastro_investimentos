@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2022 at 03:23 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Tempo de geração: 23-Fev-2022 às 02:32
+-- Versão do servidor: 10.4.14-MariaDB
+-- versão do PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `banco_douglas`
+-- Banco de dados: `banco_douglas`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `investimentos`
+-- Estrutura da tabela `investimentos`
 --
 
 CREATE TABLE `investimentos` (
@@ -33,22 +33,48 @@ CREATE TABLE `investimentos` (
   `valor_cota` decimal(6,2) NOT NULL,
   `percentual` double NOT NULL,
   `valor_pagar` decimal(6,2) NOT NULL,
-  `participante` tinyint(1) NOT NULL,
+  `id_admin` int(1) NOT NULL,
   `qtd_cota` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `investimentos`
+-- Extraindo dados da tabela `investimentos`
 --
 
-INSERT INTO `investimentos` (`id`, `descricao`, `valor_cota`, `percentual`, `valor_pagar`, `participante`, `qtd_cota`) VALUES
-(1, 'Imóvel', '150.00', 20, '100.00', 0, 5),
-(2, 'Apartamento', '100.00', 10, '150.00', 0, 15);
+INSERT INTO `investimentos` (`id`, `descricao`, `valor_cota`, `percentual`, `valor_pagar`, `id_admin`, `qtd_cota`) VALUES
+(1, 'Imóvel', '100.00', 10, '50.00', 2, 4),
+(2, 'Imóvel2', '50.00', 15, '15.00', 3, 0),
+(3, 'Carro', '800.00', 8, '1920.00', 3, 29),
+(4, 'Terreno', '1200.00', 10, '120.00', 2, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estrutura da tabela `relacionamentos`
+--
+
+CREATE TABLE `relacionamentos` (
+  `id` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_investimento` int(11) NOT NULL,
+  `id_admin` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `relacionamentos`
+--
+
+INSERT INTO `relacionamentos` (`id`, `id_usuario`, `id_investimento`, `id_admin`) VALUES
+(5, 4, 2, 3),
+(7, 4, 3, 3),
+(8, 4, 1, 2),
+(12, 4, 4, 2),
+(14, 1, 2, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -66,44 +92,58 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `usuarios`
+-- Extraindo dados da tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `telefone`, `estado`, `cidade`, `bairro`, `rua`, `numero`, `admin`) VALUES
-(1, 'Andriw', 'filipefonsequinha@gmail.com', '202cb962ac59075b964b07152d234b70', '9974444', 'Santa Catarina', 'Joinville', 'Comasa', 'Avencal', '399', 0),
-(2, 'Admin', 'admin@admin.com', '202cb962ac59075b964b07152d234b70', '55', 'Santa Catarina', 'Joinville', 'Comasa', 'Avencal', '123', 1);
+(1, 'Andriw', 'filipefonsequinha@gmail.com', '202cb962ac59075b964b07152d234b70', '5511', 'Santa Catarina2', 'Joinville2', 'Comasa2', 'Avencal2', '10', 0),
+(2, 'Admin', 'admin@admin.com', '202cb962ac59075b964b07152d234b70', '5511', 'Santa Catarina2', 'Joinville2', 'Comasa2', 'Avencal2', '10', 1),
+(3, 'Admin2', 'admin2@admin.com', '202cb962ac59075b964b07152d234b70', '5511', 'Santa Catarina2', 'Joinville2', 'Comasa2', 'Avencal2', '10', 1),
+(4, 'Teste', 'teste@gmail.com', '202cb962ac59075b964b07152d234b70', '5511', 'Santa Catarina2', 'Joinville2', 'Comasa2', 'Avencal2', '10', 0);
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `investimentos`
+-- Índices para tabela `investimentos`
 --
 ALTER TABLE `investimentos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuarios`
+-- Índices para tabela `relacionamentos`
+--
+ALTER TABLE `relacionamentos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `investimentos`
+-- AUTO_INCREMENT de tabela `investimentos`
 --
 ALTER TABLE `investimentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de tabela `relacionamentos`
+--
+ALTER TABLE `relacionamentos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de tabela `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

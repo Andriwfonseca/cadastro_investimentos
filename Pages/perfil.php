@@ -23,11 +23,11 @@ if(isset($_POST['nome'])){
     
 
     if($nome && $email && $senha && $telefone && $estado && $cidade && $bairro && $rua && $numero){
-        if ($user->alterarCadastro($nome,$email,$senha,$telefone,$estado, $cidade, $bairro, $rua, $numero)){
+        if ($user->alterarCadastro($_SESSION['cLogin'], $nome,$email,$senha,$telefone,$estado, $cidade, $bairro, $rua, $numero)){
             header("location: ./investimentos.php");
         }else{
             ?>
-            <div class="alert alert-warning">
+            <div class="text-center alert alert-warning">
             Esse e-mail já está cadastrado para outro usuário!            
             </div>
             <?php
@@ -35,7 +35,7 @@ if(isset($_POST['nome'])){
 
     }else{
         ?>
-        <div class="alert alert-warning">
+        <div class="text-center alert alert-warning">
             Preencha todos os campos!
         </div>
         <?php
@@ -57,7 +57,7 @@ if(isset($_POST['nome'])){
         </div>
         <div class="form-group">
             <label for="senha">Senha:</label>
-            <input type="password" name="senha" id="senha" class="form-control" value="<?= $dados['senha'] ?>" />
+            <input type="password" name="senha" id="senha" class="form-control" value="" />
         </div>
         <div class="form-group">
             <label for="telefone">Telefone:</label>

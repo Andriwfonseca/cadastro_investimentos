@@ -9,19 +9,20 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>Investimento</title>
 </head>
-<body class="">
-    <div class="container header">
-        <ul>
-            <?php if(isset($_SESSION['cAdmin']) && $_SESSION['cAdmin'] == 1): ?>
+<body >
+    <div class="fundo-header">
+        <div class="container header">
+            <ul>
+                <?php if(isset($_SESSION['cAdmin']) && $_SESSION['cAdmin'] == 1): ?>
 
-                <a href="../Pages/cadastro_investimentos.php"><li>Cadastrar investimentos</li></a>
+                    <a href="../Pages/cadastro_investimentos.php"><li>Cadastrar investimentos</li></a>
 
-            <?php endif; ?>
-            <a href="../Pages/investimentos.php"><li>Consulta</li></a>
-            <a href="../Pages/perfil.php"><li>Perfil</li></a>
-            <a href="../Pages/cadastro.php"><li>Criar conta</li></a>
-            <a href="../sair.php"><li>Sair</li></a>
-        </ul>
+                <?php endif; ?>
+                <a href="../Pages/investimentos.php"><li>Consulta</li></a>
+                <a href="../Pages/perfil.php"><li>Perfil</li></a>
+                <a href="../Pages/cadastro.php"><li>Criar conta</li></a>
+                <a href="../sair.php"><li>Sair</li></a>
+            </ul>
+        </div>
     </div>
-
 <?php

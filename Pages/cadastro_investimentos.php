@@ -25,13 +25,13 @@ if(isset($_POST['descricao'])){
     if($descricao && $valor_cota && $percentual && $qtd_cota){
         if ($investimento->cadastrar($descricao, $valor_cota, $percentual, $valor_pagar, $qtd_cota)){
             ?>
-            <div class="alert alert-success">
+            <div class="text-center alert alert-success">
                 <strong>Parabéns!</strong> Investimento cadastrado com sucesso. <a href="investimentos.php" class="alert-link">Verifique na página de consultas</a>
             </div>
             <?php
         }else{
             ?>
-            <div class="alert alert-warning">
+            <div class="text-center alert alert-warning">
             Esse investimento já existe!
             <a href="investimentos.php" class="alert-link">Verifique na página de consultas</a>
             </div>
@@ -40,7 +40,7 @@ if(isset($_POST['descricao'])){
 
     }else{
         ?>
-        <div class="alert alert-warning">
+        <div class="text-center alert alert-warning">
             Preencha todos os campos!
         </div>
         <?php
