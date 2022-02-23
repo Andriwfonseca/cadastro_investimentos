@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Fev-2022 às 02:32
--- Versão do servidor: 10.4.14-MariaDB
--- versão do PHP: 7.4.11
+-- Generation Time: Feb 23, 2022 at 05:12 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `banco_douglas`
+-- Database: `banco_douglas`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `investimentos`
+-- Table structure for table `investimentos`
 --
 
 CREATE TABLE `investimentos` (
@@ -37,20 +37,10 @@ CREATE TABLE `investimentos` (
   `qtd_cota` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `investimentos`
---
-
-INSERT INTO `investimentos` (`id`, `descricao`, `valor_cota`, `percentual`, `valor_pagar`, `id_admin`, `qtd_cota`) VALUES
-(1, 'Imóvel', '100.00', 10, '50.00', 2, 4),
-(2, 'Imóvel2', '50.00', 15, '15.00', 3, 0),
-(3, 'Carro', '800.00', 8, '1920.00', 3, 29),
-(4, 'Terreno', '1200.00', 10, '120.00', 2, 0);
-
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `relacionamentos`
+-- Table structure for table `relacionamentos`
 --
 
 CREATE TABLE `relacionamentos` (
@@ -60,21 +50,10 @@ CREATE TABLE `relacionamentos` (
   `id_admin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Extraindo dados da tabela `relacionamentos`
---
-
-INSERT INTO `relacionamentos` (`id`, `id_usuario`, `id_investimento`, `id_admin`) VALUES
-(5, 4, 2, 3),
-(7, 4, 3, 3),
-(8, 4, 1, 2),
-(12, 4, 4, 2),
-(14, 1, 2, 3);
-
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -92,58 +71,56 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`, `telefone`, `estado`, `cidade`, `bairro`, `rua`, `numero`, `admin`) VALUES
-(1, 'Andriw', 'filipefonsequinha@gmail.com', '202cb962ac59075b964b07152d234b70', '5511', 'Santa Catarina2', 'Joinville2', 'Comasa2', 'Avencal2', '10', 0),
-(2, 'Admin', 'admin@admin.com', '202cb962ac59075b964b07152d234b70', '5511', 'Santa Catarina2', 'Joinville2', 'Comasa2', 'Avencal2', '10', 1),
-(3, 'Admin2', 'admin2@admin.com', '202cb962ac59075b964b07152d234b70', '5511', 'Santa Catarina2', 'Joinville2', 'Comasa2', 'Avencal2', '10', 1),
-(4, 'Teste', 'teste@gmail.com', '202cb962ac59075b964b07152d234b70', '5511', 'Santa Catarina2', 'Joinville2', 'Comasa2', 'Avencal2', '10', 0);
+(2, 'Admin', 'admin@admin.com', '202cb962ac59075b964b07152d234b70', '5511', 'Santa Catarina2', 'Joinville', 'Comasa', 'Avencal', '10', 1),
+(3, 'Admin2', 'admin2@admin.com', '202cb962ac59075b964b07152d234b70', '551155555', 'Santa Catarina', 'Joinville', 'Comasa', 'Avencal', '40', 1);
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `investimentos`
+-- Indexes for table `investimentos`
 --
 ALTER TABLE `investimentos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `relacionamentos`
+-- Indexes for table `relacionamentos`
 --
 ALTER TABLE `relacionamentos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `investimentos`
+-- AUTO_INCREMENT for table `investimentos`
 --
 ALTER TABLE `investimentos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de tabela `relacionamentos`
+-- AUTO_INCREMENT for table `relacionamentos`
 --
 ALTER TABLE `relacionamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT de tabela `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

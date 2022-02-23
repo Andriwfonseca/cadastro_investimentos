@@ -107,7 +107,7 @@ class Usuario{
     public function listarParticipantes($id_investimento){
         global $pdo;
      
-        $sql = $pdo->prepare("SELECT usuarios.nome FROM usuarios INNER JOIN relacionamentos 
+        $sql = $pdo->prepare("SELECT usuarios.nome, usuarios.email, usuarios.telefone FROM usuarios INNER JOIN relacionamentos 
                                     ON (usuarios.id = relacionamentos.id_usuario and 
                                     relacionamentos.id_investimento = :id_investimento)");
         $sql->bindValue(":id_investimento", $id_investimento);       

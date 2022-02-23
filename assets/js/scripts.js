@@ -23,7 +23,7 @@ function mostrarModal(id){
             const dados = JSON.parse(data);
             const lista = document.querySelector('#lista-participantes');
             dados.map((item, key) =>{
-                lista.innerHTML += `<li key="${key}">${item.nome}</li>`;
+                lista.innerHTML += `<li key="${key}">${item.nome} - ${item.email} - ${item.telefone}</li>`;
             
             });
             //location.reload();
