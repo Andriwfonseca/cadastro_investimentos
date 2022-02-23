@@ -1,7 +1,7 @@
 <?php
 class Usuario{
 
-    public function cadastrar($nome, $email, $senha, $telefone, $estado, $cidade, $bairro, $rua, $numero){
+    public function cadastrar($nome, $email, $senha, $telefone, $estado, $cidade, $bairro, $rua, $numero, $admin){
         global $pdo;        
         
         //verifica se esse email ja esta cadastrado
@@ -13,7 +13,8 @@ class Usuario{
             $sql = $pdo->prepare("INSERT INTO usuarios SET  nome = :nome, email = :email,
                                                             senha = :senha, telefone = :telefone,
                                                             estado = :estado, cidade = :cidade,
-                                                            bairro = :bairro, rua = :rua, numero = :numero");
+                                                            bairro = :bairro, rua = :rua, numero = :numero,
+                                                            admin = :admin");
             $sql->bindValue(":nome", $nome);
             $sql->bindValue(":email", $email);
             $sql->bindValue(":senha", md5($senha));
@@ -23,6 +24,7 @@ class Usuario{
             $sql->bindValue(":bairro", $bairro);
             $sql->bindValue(":rua", $rua);
             $sql->bindValue(":numero", $numero);
+            $sql->bindValue(":admin", $admin);
             $sql->execute();
 
             return true;

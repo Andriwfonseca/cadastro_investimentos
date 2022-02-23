@@ -16,10 +16,16 @@
         $bairro = filter_input(INPUT_POST, 'bairro');
         $rua = filter_input(INPUT_POST, 'rua');
         $numero = filter_input(INPUT_POST, 'numero');
+        $admin = filter_input(INPUT_POST, 'admin');
       
+        if($admin == 'on'){
+            $admin = 1;
+        }else{
+            $admin = 0;
+        }
 
         if($nome && $email && $senha && $telefone && $estado && $cidade && $bairro && $rua && $numero){
-            if ($user->cadastrar($nome,$email,$senha,$telefone,$estado, $cidade, $bairro, $rua, $numero)){
+            if ($user->cadastrar($nome,$email,$senha,$telefone,$estado, $cidade, $bairro, $rua, $numero, $admin)){
                 ?>
                 <div class="text-center alert alert-success">
                     <strong>Parabéns!</strong> Cadastrado com sucesso. <a href="login.php" class="alert-link">Faça o login agora</a>
@@ -84,6 +90,11 @@
         <div class="form-group">
             <label for="numero">Número:</label>
             <input type="text" name="numero" id="numero" class="form-control" />
+            
+            <?php if(isset($_SESSION['cAdmin']) && $_SESSION['cAdmin'] == 1): ?>            
+            <input type="checkbox" name="admin" id="is_admin">
+            <label for="is_admin">Usuário Admin</label>
+            <?php endif; ?>
         </div>
 
         <input type="submit" value="Cadastrar" class="btn btn-primary mt-2" />
